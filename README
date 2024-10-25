@@ -1,0 +1,24 @@
+This repo automates the setup and management of toy datasets. This is intended 
+to be used as for developing and testing scripts and pipelines.
+
+The directory is structured, as follows
+
+- available-files.txt: list of available datasets
+- A separate directory for every dataset
+- scripts/: scripts to download and process datasets
+- Makefile includes targets
+    - Setting up directories
+    - Running scripts to download and process datasets
+    - Listing images/environments in the cache
+
+To use this repo, run
+
+# Run all targets
+make
+
+# Run specific target
+make vcf
+
+To create a new dataset, create a new script in the scripts/ directory and add a
+target to the Makefile. After executing the target, run list-all to update the
+list of available datasets.
