@@ -31,3 +31,5 @@ Content description
 - vcf-references/clinvar.20200520.vcf.gz: the overlaping variants ClinVar
 
 - wes-sarek: 6 WES samples from 1KG processed using nf-core sarek
+
+- cohort-counts: tabulated variant counts in case vs control cohorts

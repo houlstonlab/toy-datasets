@@ -2,6 +2,7 @@ all: setup \
 	vcf \
 	vcf-references \
 	wes-sarek \
+	cohort-counts \
 	list-all
 
 setup:
@@ -19,6 +20,10 @@ vcf-references: scripts/create_vcf_references.sh
 wes-sarek: scripts/create_wes_sarek.sh resources/wes_sarek_input.csv
 	@echo "Creating WES Sarek files"
 	sbatch scripts/create_wes_sarek.sh
+
+cohort-counts: scripts/create_cohort_counts.R
+	@echo "Creating cohort counts"
+	Rscript scripts/create_cohort_counts.R ${TOY_DATASETS} cohort-counts
 
 list-all:
 	@echo "Listing all files"
