@@ -1,0 +1,33 @@
+This repo automates the setup and management of toy datasets. This is intended 
+to be used as for developing and testing scripts and pipelines.
+
+The directory is structured, as follows
+
+- scripts/: scripts to download and process datasets
+- resources/: contains input files required to run the scripts
+- Makefile: executes the targets
+
+To use this repo, run
+
+# Run all targets
+make
+
+# Run specific target
+make vcf
+
+To create a new dataset, create a new script in the scripts/ directory and add a
+target to the Makefile. After executing the target, update the README to list
+the newely created dataset
+
+The scripts expect a default directory to be set for the cache TOY_DATASET 
+otherwise a toy-datasets/ directory will be created current working directory.
+
+Content description
+
+- vcf/1kg.variants.vcf.gz: The file contains genetypes of 1000 variants from a 
+100 samples drawn at random from the 1000 Genome Project (1kg).
+
+- vcf-references/gnomad.v4.vcf.gz: 10000 variants from GnomAD V4
+- vcf-references/clinvar.20200520.vcf.gz: the overlaping variants ClinVar
+
+- wes-sarek: 6 WES samples from 1KG processed using nf-core sarek
