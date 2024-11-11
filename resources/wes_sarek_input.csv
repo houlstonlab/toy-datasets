@@ -1,0 +1,11 @@
+patient,sex,status,sample,lane,fastq_1,fastq_2
+1,XX,0,HG00099,1,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR765/SRR765993/SRR765993_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR765/SRR765993/SRR765993_2.fastq.gz
+2,XX,0,HG00102,2,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR081/SRR081224/SRR081224_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR081/SRR081224/SRR081224_2.fastq.gz
+3,XY,0,HG00107,3,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR077/SRR077391/SRR077391_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR077/SRR077391/SRR077391_2.fastq.gz
+4,XX,0,HG00479,4,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR031/ERR031846/ERR031846_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR031/ERR031846/ERR031846_2.fastq.gz
+5,XX,0,HG00501,5,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR031/ERR031905/ERR031905_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR031/ERR031905/ERR031905_2.fastq.gz
+6,XX,0,HG00513,6,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR034/ERR034509/ERR034509_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR034/ERR034509/ERR034509_2.fastq.gz
+7,XX,0,HG00525,7,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR031/ERR031848/ERR031848_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR031/ERR031848/ERR031848_2.fastq.gz
+8,XX,0,HG00171,8,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR034/ERR034564/ERR034564_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR034/ERR034564/ERR034564_2.fastq.gz
+9,XX,0,HG00176,9,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR101/SRR101000/SRR101000_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR101/SRR101000/SRR101000_2.fastq.gz
+10,XY,0,HG00183,10,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR070/SRR070824/SRR070824_1.fastq.gz,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR070/SRR070824/SRR070824_2.fastq.gz
