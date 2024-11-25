@@ -8,8 +8,8 @@
 #SBATCH -t 24:00:00
 
 # Create output directories
-OUT="${TOY_DATASET}/vcf-references"
-TMP="${TOY_DATASET}/vcf-references/tmp"
+OUT="${TOY_DATASETS}/vcf-references"
+TMP="${TOY_DATASETS}/vcf-references/tmp"
 
 mkdir -p ${OUT} ${TMP}
 
@@ -37,7 +37,20 @@ bcftools view -i ID==@${TMP}/random.variants.txt | \
 bcftools view --threads ${SLURM_CPUS_PER_TASK} -Oz -o ${OUT}/gnomad.v4.vcf.gz
 tabix -f ${OUT}/gnomad.v4.vcf.gz
 
-# # Subset the ClinVar VCF to the random variants
+# Split the VCF by chromosome
+mkdir -p ${TMP}/gnomad.chrom
+
+CHROMOSOMES=({1..22} X Y)
+for CHR in "${CHROMOSOMES[@]}"; do
+    echo "Processing chromosome ${CHR}..."
+    bcftools view -r chr${CHR} ${OUT}/gnomad.v4.vcf.gz -Oz -o ${TMP}/gnomad.chrom/gnomad.chr${CHR}.vcf.gz
+    tabix -p vcf ${TMP}/gnomad.chrom/gnomad.chr${CHR}.vcf.gz
+done
+
+# Archive the gnomaad VCFs using tar
+tar -czvf ${OUT}/gnomad.chrom.tar.gz -C ${TMP}/gnomad.chrom/ .
+
+# Subset the ClinVar VCF to the random variants
 bcftools annotate --set-id '%CHROM:%POS:%REF:%ALT' ${CLINVAR}/clinvar_20200520.vcf.gz | \
 bcftools view -i ID==@${TMP}/random.variants.short.txt | \
 bcftools view --threads ${SLURM_CPUS_PER_TASK} -Oz -o ${OUT}/clinvar.20200520.vcf.gz
