@@ -15,6 +15,7 @@ mkdir -p ${OUT} ${TMP}
 
 GNOMAD="${SCRATCH}/mahmed03/cache/gnomad_v4_exomes"
 CLINVAR="${REFS}/NCBI/ClinVar/GRCh38"
+DBSNP="${REFS}/iGenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/dbsnp_146.hg38.vcf.gz"
 
 # Load the required modules
 module load BCFtools
@@ -55,3 +56,9 @@ bcftools annotate --set-id '%CHROM:%POS:%REF:%ALT' ${CLINVAR}/clinvar_20200520.v
 bcftools view -i ID==@${TMP}/random.variants.short.txt | \
 bcftools view --threads ${SLURM_CPUS_PER_TASK} -Oz -o ${OUT}/clinvar.20200520.vcf.gz
 tabix -f ${OUT}/clinvar.20200520.vcf.gz
+
+# Extract dbsnp variants
+bcftools query -f '%CHROM\t%POS\t%POS\n' ${TOY_DATASETS}/wes-sarek/pheno.variants.vcf.gz > ${TMP}/pheno.variants.txt
+
+bcftools view -R ${TMP}/pheno.variants.txt ${DBSNP} -Oz -o ${OUT}/dbsnp.146.vcf.gz
+tabix -f ${OUT}/dbsnp.146.vcf.gz
